@@ -1,0 +1,213 @@
+
+{% extends "frame.html" %}
+{% load static %}
+{% block customheadend %}
+
+{% endblock %}
+
+{% block page-content %}
+    <section class="project-section">
+        <div class="pos-rel project-banner">
+            <img src="{% static 'images/Desktop_View/projects/project-banner.jpg'%}">
+            <h3>PROJECTS</h3>
+        </div>
+        <div class="container-fluid pos-rel">
+            <div class="row custom-back-btn w-100 mb-5">
+                <div class="col-lg-2 col-md-2 col-3 text-center">
+                    <div class="back-btn-wrapper">
+                      <a href="{% url 'projects' %}">
+                          <h4 class="font-primary-color mb-0">BACK</h4>
+                          <div class="back-btn"></div>
+                      </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-9">
+                    <div class="dropdown">
+                    <button type="button" class="btn-menu-project dropdown-toggle" data-toggle="dropdown">
+                        What are you looking for?
+                        <i class="fa fa-search ml-lg-5 ml-md-5 ml-2"></i>
+                    </button>
+                    <div class="dropdown-menu ListingDropDownMaterials ml-0">
+                        <div class="row">
+                        <div class="col-12">
+                            <h2 class="menu-list-heading">PROJECTS</h2>
+                        </div>
+                        <form class="w-100" action="{% url 'projects-detail' %}" method="GET">
+                            <div class="Listing w-100">
+                              <div class="w-100">
+                                  <div class="d-block">
+                                    {% for pro in data %}
+                                      <div class="d-flex mx-auto text-left align-items-baseline">
+                                          <input type="checkbox" name="{{ pro.pk }}" class="mr-2" />
+                                          <div class="main-heading text-gray text-left">
+                                            {{ pro.name }}
+                                          </div>
+                                      </div>
+                                    {%endfor%}
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="d-block text-center mt-5">
+                            <button type="submit" class="menu-search-btn">SEARCH</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2"></div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                      <a href="{% url 'projects-details' 1 %}">
+                        <img src="{% static 'images/Desktop_View/projects/park-hyatt.jpg'%}">
+                        <div class="project-bottom-text">
+                            <h3 class="mb-0">PARK HYATT VIENNA</h3>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 2 %}">
+                            <img src="{% static 'images/Desktop_View/projects/private-resendices.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">PRIVATE RESENDENCIES</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 3 %}">
+                            <img src="{% static 'images/Desktop_View/projects/singapore.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">SINGAPORE</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 4 %}">
+                            <img src="{% static 'images/Desktop_View/projects/rio.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">RIO</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 5 %}">
+                            <img src="{% static 'images/Desktop_View/projects/shanghai.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">SHANGHAI</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 6 %}">
+                            <img src="{% static 'images/Desktop_View/projects/paris.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">PARIS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 7 %}">
+                            <img src="{% static 'images/Desktop_View/projects/yatch.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">YATCH</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 8 %}">
+                            <img src="{% static 'images/Desktop_View/projects/grand-hyatt.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">GRAND HYATT GURGAON</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 9 %}">
+                            <img src="{% static 'images/Desktop_View/projects/capetown.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">CAPETOWN</h3>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 10 %}">
+                            <img src="{% static 'images/Desktop_View/projects/milan.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">MILAN</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 11 %}">
+                            <img src="{% static 'images/Desktop_View/projects/newyork.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">NEWYORK</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 12 %}">
+                            <img src="{% static 'images/Desktop_View/projects/class-55.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">CLASS 55 YACHT</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 13 %}">
+                            <img src="{% static 'images/Desktop_View/projects/kl-wellness.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">KL WELLNESS CENTER</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'projects-details' 14 %}">
+                            <img src="{% static 'images/Desktop_View/projects/office.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">OFFICE</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock page-content %}
+
+
+
+{% block custombodyend %}
+
+{% endblock %}

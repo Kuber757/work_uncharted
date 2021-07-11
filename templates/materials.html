@@ -1,0 +1,269 @@
+{% extends "frame.html" %} {% load static %} {% block customheadend %}
+{% endblock %} {% block page-content %}
+<section class="project-section">
+  <div class="pos-rel project-banner">
+    <img
+      src="{% static 'images/Desktop_View/materials/material-banner.jpg'%}"
+    />
+    <h3>MATERIALS</h3>
+  </div>
+  <div class="container-fluid pos-rel">
+    <div class="row custom-back-btn w-100 mb-5">
+      <div class="col-lg-2 col-md-2 col-3 text-center">
+        <div class="back-btn-wrapper">
+          <a href="{% url 'menu' %}">
+            <h4 class="font-primary-color mb-0">BACK</h4>
+            <div class="back-btn"></div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-9">
+        <div class="dropdown">
+          <button type="button" class="btn-menu-project dropdown-toggle" data-toggle="dropdown">
+            What are you looking for?
+            <i class="fa fa-search ml-lg-5 ml-md-5 ml-2"></i>
+          </button>
+          <div class="dropdown-menu ListingDropDownMaterials ml-0">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="menu-list-heading">MATERIALS</h2>
+              </div>
+
+              <form class="w-100" action="{% url 'materials-detail' %}" method="GET">
+                <div class="Listing w-100">
+                  <div class="w-100">
+                      <div class="d-block">
+                        {% for mat in data %}
+                          <div class="d-flex mx-auto text-left align-items-baseline">
+                              <input type="checkbox" name="{{ mat.pk }}" class="mr-2" />
+                              <div class="main-heading text-gray text-left">
+                                {{ mat.name }}
+                              </div>
+                          </div>
+                        {%endfor%}
+                      </div>
+                  </div>
+                </div>
+                <div class="d-block text-center mt-5">
+                  <button type="submit" class="menu-search-btn">SEARCH</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2"></div>
+    </div>
+
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 1 %}">
+            <img
+              src="{% static 'images/Desktop_View/materials/semi-precious.jpg'%}"
+            />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">SEMI PRECIOUS STONE</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 2 %}">
+
+            <img src="{% static 'images/Desktop_View/materials/straw.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">STRAW MACQUERTY</h3>
+            </div>
+          </a>
+
+
+        </div>
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 3 %}">
+            <img src="{% static 'images/Desktop_View/materials/glass.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">GLASS</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 4 %}">
+            <img src="{% static 'images/Desktop_View/materials/mother-of-pearl.jpg'%}"/>
+            <div class="project-bottom-text">
+              <h3 class="mb-0">MOTHER OF PEARL</h3>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 5 %}">
+            <img src="{% static 'images/Desktop_View/materials/stone.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">STONE</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 6 %}">
+            <img src="{% static 'images/Desktop_View/materials/selenite.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">SELENITE</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 7 %}">
+            <img src="{% static 'images/Desktop_View/materials/stingray.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">STINGRAY</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 8 %}">
+            <img
+              src="{% static 'images/Desktop_View/materials/grand-hyatt.jpg'%}"
+            />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">GRAND HYATT GURGAON</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 9 %}">
+            <img src="{% static 'images/Desktop_View/materials/brass.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">BRASS</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 10 %}">
+            <img src="{% static 'images/Desktop_View/materials/leather.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">LEATHER</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 11 %}">
+            <img src="{% static 'images/Desktop_View/materials/wood.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">WOOD</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 12 %}">
+            <img
+              src="{% static 'images/Desktop_View/materials/parchment.jpg'%}"
+            />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">PARCHMENT</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 13 %}">
+            <img src="{% static 'images/Desktop_View/materials/bone1.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">BONE</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 14 %}">
+            <img src="{% static 'images/Desktop_View/materials/bone2.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">BONE</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 15 %}">
+            <img src="{% static 'images/Desktop_View/materials/horn.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">HORN</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 16 %}">
+            <img src="{% static 'images/Desktop_View/materials/leafing.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">LEAFING</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 17 %}">
+            <img src="{% static 'images/Desktop_View/materials/lacquer.jpg'%}" />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">LACQUERWARE</h3>
+            </div>
+        </a>
+        </div>
+
+      </div>
+      <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
+        <div class="project-img-wrapper">
+          <a href="{% url 'materials-details' 18 %}">
+            <img
+              src="{% static 'images/Desktop_View/materials/nature-material.jpg'%}"
+            />
+            <div class="project-bottom-text">
+              <h3 class="mb-0">NATURE MATERIAL</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock page-content %} {% block custombodyend %} {% endblock %}

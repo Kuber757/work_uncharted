@@ -1,0 +1,43 @@
+
+{% extends "frame.html" %}
+{% load static %}
+{% block customheadend %}
+    <link rel="stylesheet" href="{% static 'css/masonary-grid.css'%}">
+{% endblock %}
+
+{% block page-content %}
+<div class="container-fluid mt-5 masonary-grid pos-rel">
+  <div class="back-btn-wrapper-detail">
+      <a href="{% url 'materials' %}">
+        <h4>BACK</h4>
+        <div class="back-btn"></div>
+      </a>
+    </div>
+    {% for mat in data %}
+      <h3>{{ mat.name }}</h3>
+      <div class="masonry">
+        {%for i in mat.url_list %}
+    			<div class="brick">
+            {% static i as myphoto %}
+    				<img src = "{{ myphoto }}">
+            <div class="img-overlay">
+              <a href="#" class="img-icon">
+                <i class="fas fa-search-plus"></i>
+              </a>
+              <a href="#" class="download-icon">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+    			</div>
+        {%endfor%}
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock page-content %}
+
+
+
+{% block custombodyend %}
+
+{% endblock %}

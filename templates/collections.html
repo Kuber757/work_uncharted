@@ -1,0 +1,303 @@
+
+{% extends "frame.html" %}
+{% load static %}
+{% block customheadend %}
+
+{% endblock %}
+
+{% block page-content %}
+    <section class="project-section">
+        <div class="pos-rel project-banner">
+            <img src="{% static 'images/Desktop_View/collection/collection-banner.jpg'%}">
+            <h3>COLLECTIONS</h3>
+        </div>
+        <div class="container-fluid pos-rel">
+            
+            <div class="row custom-back-btn mb-5">
+                <div class="col-lg-2 col-md-2 col-3 text-center">
+                    <div class="back-btn-wrapper">
+                    <a href="{% url 'collections' %}">
+                        <h4 class="font-primary-color mb-0">BACK</h4>
+                        <div class="back-btn"></div>
+                    </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-9">
+                    <div class="dropdown">
+                    <button
+                        type="button"
+                        class="btn-menu-project dropdown-toggle"
+                        data-toggle="dropdown"
+                    >
+                        What are you looking for?
+                        <i class="fa fa-search ml-lg-5 ml-md-5 ml-2"></i>
+                    </button>
+                    <div class="dropdown-menu ListingDropDownMaterials ml-0">
+                        <div class="row">
+                        <div class="col-12">
+                            <h2 class="menu-list-heading">COLLECTIONS</h2>
+                        </div>
+
+                        <form class="w-100" action="{% url 'collections-detail' %}" method="GET">
+                            <div class="Listing w-100">
+                            <div class="w-100">
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left align-items-baseline">
+                                    <input type="checkbox" name="1" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">
+                                    VASES
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="2" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">
+                                        LIGHTS
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="3" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">TABLES</div>
+                                </div>
+                                </div>
+
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="4" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">LAMPS</div>
+                                </div>
+                                </div>
+
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="5" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">CHAIRS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="6" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">BOWLS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="7" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">CABINS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="8" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">BRASS FURNITURE</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="9" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">ACCESSORY SETS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="10" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">BATHROOM SETS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="11" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">BONE & HORN</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="12" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">CARPETS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="13" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">CUSHIONS</div>
+                                </div>
+                                </div>
+                                <div class="d-block">
+                                <div class="d-flex mx-auto text-left w-100 align-items-baseline">
+                                    <input type="checkbox" name="14" class="mr-2" />
+                                    <div class="main-heading text-gray text-left">TRAY</div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="d-block text-center mt-5">
+                            <button type="submit" class="menu-search-btn">SEARCH</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2"></div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                      <a href="{% url 'collections-details' 1 %}">
+                        <img src="{% static 'images/Desktop_View/collection/vases.jpg'%}">
+                        <div class="project-bottom-text">
+                            <h3 class="mb-0">VASES</h3>
+                        </div>
+                      </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 2 %}">
+                            <img src="{% static 'images/Desktop_View/collection/lights.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">LIGHTS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 3 %}">
+                            <img src="{% static 'images/Desktop_View/collection/tables.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">TABLES</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 4 %}">
+                            <img src="{% static 'images/Desktop_View/collection/lamps.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">LAMPS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 5 %}">
+                            <img src="{% static 'images/Desktop_View/collection/chairs.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">CHAIRS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 6 %}">
+                            <img src="{% static 'images/Desktop_View/collection/bowls.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">BOWLS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 7 %}">
+                            <img src="{% static 'images/Desktop_View/collection/cabins.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">CABINS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 8 %}">
+                            <img src="{% static 'images/Desktop_View/collection/brass-furniture.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">BRASS FURNITURE</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 9 %}">
+                            <img src="{% static 'images/Desktop_View/collection/accessory-sets.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">ACCESSORY SETS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 10 %}">
+                            <img src="{% static 'images/Desktop_View/collection/bathroom-sets.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">BATHROOM SETS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 11 %}">
+                            <img src="{% static 'images/Desktop_View/collection/bone_horn.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">BONE & HORN</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 12 %}">
+                            <img src="{% static 'images/Desktop_View/collection/carpets.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">CARPETS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 13 %}">
+                            <img src="{% static 'images/Desktop_View/collection/cushions.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">CUSHIONS</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-3 mt-md-3 col-md-6 mb-3 mb-lg-0 mb-md-0">
+                    <div class="project-img-wrapper">
+                        <a href="{% url 'collections-details' 14 %}">
+                            <img src="{% static 'images/Desktop_View/collection/tray.jpg'%}">
+                            <div class="project-bottom-text">
+                                <h3 class="mb-0">TRAY</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+{% endblock page-content %}
+
+
+
+{% block custombodyend %}
+
+{% endblock %}

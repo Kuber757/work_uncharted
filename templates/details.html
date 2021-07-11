@@ -1,0 +1,85 @@
+{% extends "frame.html" %}
+{% load static %}
+{% block customheadend %}
+    <link rel="stylesheet" href="{% static 'css/masonary-grid.css'%}">
+{% endblock %}
+
+{% block page-content %}
+<h3>k</h3>
+<h3>k</h3>
+
+    {% for material in mat_list %}
+      <!-- material name -->
+      <h3>{{ material.name }}</h3>
+      {% for i in material.url_list %}
+        <div class="brick">
+          {% static i as myphoto %}
+          <!-- matrial image -->
+          <img src = "{{ myphoto }}">
+        </div>
+      {% endfor %}
+
+      <!-- material related project -->
+      {% for pk in material.projects %}
+        {% for item in projects_list %}
+          {% if forloop.counter == pk  %}
+          <!-- material related project name -->
+              {{ item.name }}
+              {% for i in item.url_list %}
+                <div class="brick">
+                  {% static i as myphoto %}
+                  <!-- material related project image -->
+                  <img src = "{{ myphoto }}">
+                </div>
+              {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+        <!-- material related collection -->
+        {% for pk in material.collections %}
+          {% for item in collections_list %}
+            {% if forloop.counter == pk  %}
+                <!-- material related collection name -->
+                {{ item.name }}
+                {% for i in item.url_list %}
+                  <div class="brick">
+                    {% static i as myphoto %}
+                    <!-- material related collection image -->
+                    <img src = "{{ myphoto }}">
+                  </div>
+                {% endfor %}
+            {% endif %}
+          {% endfor %}
+      {% endfor %}
+    {% endfor %}
+
+    <!-- selected project from form -->
+    {% for project in pro_list %}
+      <h3>{{ project.name }}</h3>
+      {% for i in project.url_list %}
+        <div class="brick">
+          {% static i as myphoto %}
+          <img src = "{{ myphoto }}">
+        </div>
+      {% endfor %}
+    {% endfor %}
+
+    <!-- selected image from form -->
+    {% for collection in col_list %}
+      <h3>{{ collection.name }}</h3>
+      {% for i in collection.url_list %}
+        <div class="brick">
+          {% static i as myphoto %}
+          <img src = "{{ myphoto }}">
+        </div>
+      {% endfor %}
+    {% endfor %}
+
+{% endblock page-content %}
+
+
+
+{% block custombodyend %}
+
+{% endblock %}

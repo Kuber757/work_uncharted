@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Uncharted</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#99765c">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+
+    {% block customheadend %}{% endblock %}
+</head>
+
+<body>
+{% block content %}{% endblock content %}
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+<script src="{% static 'js/fontawesome.js'%}"></script>
+<script src="{% static 'js/main.js'%}"></script>
+{% block alternatefilescript %}{% endblock %}
+{% block custombodyend %}{% endblock %}
+</body>
+
+<script>
+
+
+    $('select').selectpicker();
+    function myFunction() {
+        setTimeout(function(){
+            $("#loader").fadeOut('slow');
+         }, 3000);
+    }
+    $(".signup-btn").click(function(e){
+        e.preventDefault();
+        $(".signup-btn").css('background-color','#fff');
+        $(".signup-btn").css('color','#9a765c');
+        $(".sign-btn").css('color','#fff');
+        $(".sign-btn").css('background-color','transparent');
+        $('.login-bg .sign-up-form').addClass("d-block");
+        $('.login-bg .sign-up-form').removeClass("d-none");
+        $('.login-bg .sign-in-form').removeClass("d-block");
+        $('.login-bg .sign-in-form').addClass("d-none");
+    })
+    $(".sign-btn").click(function(e){
+        e.preventDefault();
+        $(".sign-btn").css('background-color','#fff');
+        $(".sign-btn").css('color','#9a765c');
+        $(".signup-btn").css('color','#fff');
+        $(".signup-btn").css('background-color','transparent');
+        $('.login-bg .sign-up-form').removeClass("d-block");
+        $('.login-bg .sign-up-form').addClass("d-none");
+        $('.login-bg .sign-in-form').addClass("d-block");
+        $('.login-bg .sign-in-form').removeClass("d-none");
+    })
+    $(document).ready(function(){
+        myFunction();
+        $('.login-bg .sign-up-form').addClass("d-none");
+    })
+</script>
+</html>

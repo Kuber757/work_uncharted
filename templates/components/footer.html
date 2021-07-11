@@ -1,0 +1,69 @@
+{% load static %}
+<section class="footer mt-lg-3">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <div class="icon"><img src="{% static 'images/logo_icon.svg'%}" alt="logo"></div>
+                        <div class="icon-text"><img src="{% static 'images/logo_text.svg'%}" alt="logo"></div>
+                        <div class="tag-line"><img src="{% static 'images/tagline.svg'%}" alt="logo"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-menu">
+                        <ul>
+                           <li><a href="{% url 'menu' %}">Uncharted Design</a></li>
+                            <li><a href="{% url 'materials' %}">Material</a></li>
+                            <li><a href="{% url 'projects' %}">Project</a></li>
+                            <li><a href="{% url 'collections' %}">Collection</a></li>
+                            <li><a href="{% url 'home' %}">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="/"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="/"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="/"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% comment %} <section class="footer mt-lg-3">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <div class="icon"><img src="{% static 'images/logo_icon.svg'%}" alt="logo"></div>
+                        <div class="icon-text"><img src="{% static 'images/logo_text.svg'%}" alt="logo"></div>
+                        <div class="tag-line"><img src="{% static 'images/tagline.svg'%}" alt="logo"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="about_us.html">Home</a></li>
+                            <li><a href="{% url 'menu' %}">Our Story</a></li>
+                            <li><a href="materials.html">Materials</a></li>
+                            <li><a href="work_preview.html">Work</a></li>
+                            <li><a href="contact_us.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="/"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="/"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="/"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</section> {% endcomment %}
