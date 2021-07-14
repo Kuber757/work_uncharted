@@ -590,11 +590,10 @@ h2 {
   border: 1px solid #9a673d !important;
 }
 .outline-button {
-  border-radius: 0.25rem;
+  border-radius: unset;
   font-style: normal !important;
   font-weight: 300 !important;
-  font-size: 17.288px !important;
-  line-height: 22px !important;
+  font-size: 19.288px !important;
   color: #896249 !important;
   max-width: 148px;
   height: 48px;
@@ -602,6 +601,18 @@ h2 {
   border: 1px solid #9a673d !important;
   width: 100%;
   transition: all 0.5s;
+  font-family: 'myFirstFont';
+  letter-spacing: 2px;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.mob-menu{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  transform: translate(-50%, -50%);
 }
 
 .about-bg {
@@ -614,6 +625,48 @@ h2 {
   background-size: cover;
   background-position: right;
   background: url(../images/about-1.gif);
+}
+
+.menu-img-wrapper{
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menu-img-wrapper[data-animation="show"]::before {
+  height: 100%;
+}
+
+.menu-img-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: 0.1s;
+}
+.menu-img-wrapper::before {
+  transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: 0.3s;
+  background: #f3f3eb;
+}
+
+.mennu-img-wrapper img {
+  width: 100%;
+}
+
+.menu-img-wrapper[data-animation="show"] img {
+  transform: scale(1, 1);
+}
+
+.menu-img-wrapper img {
+  transform: scale(1, 1);
+  transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: 0.2s;
 }
 
 .about-second-bg-container {
@@ -1621,7 +1674,7 @@ input {
 }
 .login-bg {
   background-image: url(../images/login.jpg);
-  height: 100vh;
+  height: 110vh;
   background-size: cover;
   background-position: bottom;
 }
@@ -1682,7 +1735,7 @@ input {
 }
 
 .h-100 {
-  height: 100vh;
+  height: 100vh!important;
 }
 /* .about-bg::after{
   content: "";
@@ -2119,7 +2172,7 @@ input {
 }
 
 .transformable-text {
-  transform: translateY(100%);
+  transform: translateY(150%);
 }
 
 /* .about-us-container{
@@ -2564,8 +2617,14 @@ input:-moz-placeholder {
   right: 0;
 }
 
+.menu-list .o-hidden{
+overflow: hidden;
+}
+
+
+
 .btn-menu {
-  width: 50%;
+  height: 40px;
   display: block;
   margin: 50px auto auto auto;
   background: transparent;
@@ -2573,7 +2632,7 @@ input:-moz-placeholder {
   color: #fff;
   font-style: italic;
   outline: none;
-  font-size: 28px;
+  font-size: 23px;
   font-style: italic;
   font-family: laren-light;
   border-bottom: 2px solid #fff;
@@ -2589,10 +2648,12 @@ input:-moz-placeholder {
 
 .menu-nav .nav-item {
   display: flex;
-  align-items: start;
+  align-items: initial;
   position: relative;
+  overflow: hidden;
+  width: 100%;
 }
-.menu-nav li:nth-child(odd)::before {
+/* .menu-nav li:nth-child(odd)::before {
   counter-increment: section;
   content: "0" counter(section);
   color: #fff;
@@ -2600,13 +2661,23 @@ input:-moz-placeholder {
   font-family: 'myFirstFont';
   margin-right: 10px;
   font-style: italic;
-  position: absolute;
-  left: -35px;
-  top: -37px;
+  position: unset;
   font-style: italic;
   font-size: 40px;
   line-height: 1;
-}
+} */
+
+
+/* .menu-nav li:nth-child(even)::after {
+  counter-increment: section;
+  content: "0" counter(section);
+  color: #fff;
+  font-family: 'myFirstFont';
+  font-style: italic;
+  font-size: 40px;
+  margin-left: 10px;
+  position: unset;
+} */
 
 .menu-list a:hover:after {
   width: 100%;
@@ -2616,9 +2687,9 @@ input:-moz-placeholder {
 .menu-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
-  font-size: 80px;
+  font-size: 76px;
   cursor: pointer;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-weight: 400;
   text-align: center;
   color: #fff;
@@ -2627,7 +2698,7 @@ input:-moz-placeholder {
   font-family: "myFirstFont" !important;
   transition: color 0.3s ease-out;
   text-decoration: none;
-  line-height: 0.6;
+  line-height: 1;
 }
 
 .nav-bg {
@@ -2693,18 +2764,7 @@ input:-moz-placeholder {
   width: 100%;
   color: #fff !important;
 }
-.menu-nav li:nth-child(even)::after {
-  counter-increment: section;
-  content: "0" counter(section);
-  color: #fff;
-  font-family: 'myFirstFont';
-  font-style: italic;
-  font-size: 40px;
-  margin-left: 10px;
-  position: absolute;
-  right: 78px;
-  top: -37px;
-}
+
 .btn-menu-project {
   width: 50%;
   display: block;
@@ -2755,6 +2815,11 @@ input:-moz-placeholder {
   display: flex;
   color: #99765c;
   align-items: baseline;
+  padding-left: 100px;
+}
+
+.Listing .main-heading{
+  font-size: 20px;
 }
 
 .project-section .dropdown-toggle::after{
@@ -2770,7 +2835,7 @@ input:-moz-placeholder {
   overflow-y: auto;
   height: auto;
   padding-bottom: 15px;
-  background: #fff;
+  background: #f3f3ec;
   position: absolute;
   margin-top: 50px;
   margin-left: unset;
@@ -2792,7 +2857,7 @@ input:-moz-placeholder {
 .back-btn-wrapper-detail {
   position: absolute;
   right: 8%;
-  top: 0;
+  top: -22px;
 }
 button:focus{
   outline: none;
@@ -2817,14 +2882,20 @@ button:focus{
 }
 
 .strike:after {
-  top: 0;
+  top: 10px;
   content: "";
   position: absolute;
   background: #99765c;
   width: 2px;
-  height: 150px;
+  height: 250px;
   right: 0;
 }
+
+.menu-max-height{
+  max-height: 330px;
+  overflow-y: auto;
+}
+
 .menu-list-heading{
   font-family: 'myFirstFont';
   letter-spacing: 3px;

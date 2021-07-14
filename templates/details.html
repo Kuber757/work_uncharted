@@ -5,81 +5,199 @@
 {% endblock %}
 
 {% block page-content %}
-<h3>k</h3>
-<h3>k</h3>
+<div class="container-fluid mt-5 masonary-grid pos-rel">
+    <div class="back-btn-wrapper-detail">
+      <a href="{% url 'login:menu' %}">
+        <h4>BACK</h4>
+        <div class="back-btn"></div>
+      </a>
+    </div>
+
+    <!-- beginning of the materials -->
 
     {% for material in mat_list %}
-      <!-- material name -->
       <h3>{{ material.name }}</h3>
-      {% for i in material.url_list %}
-        <div class="brick">
-          {% static i as myphoto %}
-          <!-- matrial image -->
-          <img src = "{{ myphoto }}">
-        </div>
-      {% endfor %}
+      <div class="masonry">
+        {% for i in material.display %}
+    			<div class="brick">
+            {% static i as myphoto %}
+    				<img src = "{{ myphoto }}">
+            <div class="img-overlay zoom-gallery">
+              <a href="{{ myphoto }}" class="img-icon">
+                <img src = "{{ myphoto }}" class="d-none">
+                <i class="fas fa-search-plus"></i>
+              </a>
+              <a href="{{ myphoto }}" class="download-icon" download>
+                  <img src = "{{ myphoto }}" class="d-none">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+    			</div>
+        {%endfor%}
+      </div>
 
-      <!-- material related project -->
-      {% for pk in material.projects %}
-        {% for item in projects_list %}
-          {% if forloop.counter == pk  %}
-          <!-- material related project name -->
-              {{ item.name }}
-              {% for i in item.url_list %}
-                <div class="brick">
-                  {% static i as myphoto %}
-                  <!-- material related project image -->
-                  <img src = "{{ myphoto }}">
-                </div>
-              {% endfor %}
-          {% endif %}
+      <!-- <a href="{% url 'login:materials-details/' 1 %"> -->
+      <div class="mt-5 mb-5 col-12 mx-auto text-center">
+        <button type="submit" class="web-btn outline-button mx-auto">EXPLORE MORE</button>
+      </div>
+
+       <!-- put the heading of view projects -->
+        <!-- material related project -->
+        {% for pk in material.projects %}
+          {% for item in projects_list %}
+            {% if forloop.counter == pk  %}
+            <!-- material related project name, put on left side, font smaller then that of view projects heading -->
+                <h3>{{ item.name }}</h3>
+              <div class="masonry">
+                {% for i in item.display %}
+                  <div class="brick">
+                    {% static i as myphoto %}
+                    <!-- material related project image -->
+                    <img src = "{{ myphoto }}">
+                    <div class="img-overlay zoom-gallery">
+                      <a href="{{ myphoto }}" class="img-icon">
+                        <img src = "{{ myphoto }}" class="d-none">
+                        <i class="fas fa-search-plus"></i>
+                      </a>
+                      <a href="{{ myphoto }}" class="download-icon" download>
+                          <img src = "{{ myphoto }}" class="d-none">
+                        <i class="fas fa-download"></i>
+                      </a>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
+        <div class="mt-5 mb-5 col-12 mx-auto text-center">
+          <button type="submit" class="web-btn outline-button mx-auto">EXPLORE MORE</button>
+        </div>
 
+        <!-- put the heading of view collections -->
         <!-- material related collection -->
         {% for pk in material.collections %}
           {% for item in collections_list %}
             {% if forloop.counter == pk  %}
-                <!-- material related collection name -->
-                {{ item.name }}
-                {% for i in item.url_list %}
-                  <div class="brick">
-                    {% static i as myphoto %}
-                    <!-- material related collection image -->
-                    <img src = "{{ myphoto }}">
-                  </div>
-                {% endfor %}
+                <!-- material related collection name, put on left side, font smaller then that of view collections heading -->
+                <h3>{{ item.name }}</h3>
+                <div class="masonry">
+                  {% for i in item.display %}
+                    <div class="brick">
+                      {% static i as myphoto %}
+                      <!-- material related collection image -->
+                      <img src = "{{ myphoto }}">
+                      <div class="img-overlay zoom-gallery">
+                        <a href="{{ myphoto }}" class="img-icon">
+                          <img src = "{{ myphoto }}" class="d-none">
+                          <i class="fas fa-search-plus"></i>
+                        </a>
+                        <a href="{{ myphoto }}" class="download-icon" download>
+                            <img src = "{{ myphoto }}" class="d-none">
+                          <i class="fas fa-download"></i>
+                        </a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
             {% endif %}
           {% endfor %}
-      {% endfor %}
+        {% endfor %}
+        <div class="mt-5 mb-5 col-12 mx-auto text-center">
+          <button type="submit" class="web-btn outline-button mx-auto">EXPLORE MORE</button>
+        </div>
     {% endfor %}
+
 
     <!-- selected project from form -->
     {% for project in pro_list %}
       <h3>{{ project.name }}</h3>
-      {% for i in project.url_list %}
-        <div class="brick">
-          {% static i as myphoto %}
-          <img src = "{{ myphoto }}">
-        </div>
-      {% endfor %}
+      <div class="masonry">
+        {% for i in project.display %}
+          <div class="brick">
+            {% static i as myphoto %}
+            <img src = "{{ myphoto }}">
+            <div class="img-overlay zoom-gallery">
+              <a href="{{ myphoto }}" class="img-icon">
+                <img src = "{{ myphoto }}" class="d-none">
+                <i class="fas fa-search-plus"></i>
+              </a>
+              <a href="{{ myphoto }}" class="download-icon" download>
+                  <img src = "{{ myphoto }}" class="d-none">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     {% endfor %}
+    <div class="mt-5 mb-5 col-12 mx-auto text-center">
+      <button type="submit" class="web-btn outline-button mx-auto">EXPLORE MORE</button>
+    </div>
 
     <!-- selected image from form -->
     {% for collection in col_list %}
       <h3>{{ collection.name }}</h3>
-      {% for i in collection.url_list %}
-        <div class="brick">
-          {% static i as myphoto %}
-          <img src = "{{ myphoto }}">
-        </div>
-      {% endfor %}
+      <div class="masonry">
+        {% for i in collection.display %}
+          <div class="brick">
+            {% static i as myphoto %}
+            <img src = "{{ myphoto }}">
+            <div class="img-overlay zoom-gallery">
+              <a href="{{ myphoto }}" class="img-icon">
+                <img src = "{{ myphoto }}" class="d-none">
+                <i class="fas fa-search-plus"></i>
+              </a>
+              <a href="{{ myphoto }}" class="download-icon" download>
+                  <img src = "{{ myphoto }}" class="d-none">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     {% endfor %}
+
+    <div class="mt-5 mb-5 col-12 mx-auto text-center">
+      <button type="submit" class="web-btn outline-button mx-auto">EXPLORE MORE</button>
+    </div>
+
+
+
+</div>
+
+
 
 {% endblock page-content %}
 
 
 
 {% block custombodyend %}
+<script>
 
+  $(document).ready(function(){
+    $('.zoom-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        closeOnContentClick: false,
+        closeBtnInside: false,
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        image: {
+            verticalFit: true,
+        },
+        gallery: {
+            enabled: true
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function (element) {
+                return element.find('img');
+            }
+        }
+
+    });
+  })
+
+</script>
 {% endblock %}

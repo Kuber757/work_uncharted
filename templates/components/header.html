@@ -10,41 +10,13 @@
         </div>
     </section>
 
-
-        {% comment %} <section class="nav-bg w-100">
-        <div class="container-fluid px-0 px-lg-3 px-md-1">
-            <div class="page-wrapper">
-                <div class="nav-wrapper">
-                    <nav class="navbar px-md-1">
-                        <a href="{% url 'menu' %}">
-                            <div class="logo">
-                                <img src="{% static 'images/logo_icon.svg'%}" class="logoicon" alt="logo">
-                                <img src="{% static 'images/logo_text.svg'%}" class="logotext" alt="logo">
-                            </div>
-                        </a>
-                        <div class="menu-toggle" id="mobile-menu">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </div>
-                        <ul class="nav no-search" id="navbar">
-                            <li class="nav-item"><a href="about_us.html">Home</a></li>
-                            <li class="nav-item"><a href="{% url 'menu' %}">Our Story</a></li>
-                            <li class="nav-item"><a href="materials.html">Materials</a></li>
-                            <li class="nav-item"><a href="work_preview.html">Work</a></li>
-                            <li class="nav-item"><a href="contact_us.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </section> {% endcomment %}
-
+    {% if request.user.is_authenticated %}
     <section class="nav-bg w-100">
         <div class="container-fluid px-0 px-lg-3 px-md-1">
             <div class="page-wrapper">
                 <div class="nav-wrapper">
                     <nav class="navbar px-md-1">
-                        <a href="{% url 'menu' %}">
+                        <a href="{% url 'login:menu' %}">
                             <div class="logo">
                                 <img src="{% static 'images/logo_icon.svg'%}" class="logoicon" alt="logo">
                                 <img src="{% static 'images/logo_text.svg'%}" class="logotext" alt="logo">
@@ -55,10 +27,10 @@
                             <span class="bar"></span>
                         </div>
                         <ul class="nav no-search">
-                            <li class="nav-item"><a href="{% url 'menu' %}">Uncharted Design</a></li>
-                            <li class="nav-item"><a href="{% url 'materials' %}">Material</a></li>
-                            <li class="nav-item"><a href="{% url 'projects' %}">Project</a></li>
-                            <li class="nav-item"><a href="{% url 'collections' %}">Collection</a></li>
+                            <li class="nav-item"><a href="{% url 'login:menu' %}">Uncharted Design</a></li>
+                            <li class="nav-item"><a href="{% url 'login:materials' %}">Material</a></li>
+                            <li class="nav-item"><a href="{% url 'login:projects' %}">Project</a></li>
+                            <li class="nav-item"><a href="{% url 'login:collections' %}">Collection</a></li>
                             
                             <li class="nav-item dropdown">
                             <a href="contact_us.html" class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Download pdf</a>
@@ -276,13 +248,43 @@
                                 </div>
                             </div>
                             </li>
-                            <li class="nav-item"><a href="{% url 'home' %}">Logout</a></li>
+                            <li class="nav-item"><a href="{% url 'login:logout' %}">Logout</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </section>
+    {%else%}
+    <section class="nav-bg w-100">
+        <div class="container-fluid px-0 px-lg-3 px-md-1">
+            <div class="page-wrapper">
+                <div class="nav-wrapper">
+                    <nav class="navbar px-md-1">
+                        <a href="{% url 'login:menu' %}">
+                            <div class="logo">
+                                <img src="{% static 'images/logo_icon.svg'%}" class="logoicon" alt="logo">
+                                <img src="{% static 'images/logo_text.svg'%}" class="logotext" alt="logo">
+                            </div>
+                        </a>
+                        <div class="menu-toggle" id="mobile-menu">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                        <ul class="nav no-search" id="navbar">
+                            <li class="nav-item"><a href="https://master.d19tl39bfzn8wo.amplifyapp.com/about_us.html">Home</a></li>
+                            <li class="nav-item"><a href="https://master.d19tl39bfzn8wo.amplifyapp.com/index.html">Our Story</a></li>
+                            <li class="nav-item"><a href="https://master.d19tl39bfzn8wo.amplifyapp.com/materials.html">Materials</a></li>
+                            <li class="nav-item"><a href="https://master.d19tl39bfzn8wo.amplifyapp.com/work_preview.html">Work</a></li>
+                            <li class="nav-item"><a href="https://master.d19tl39bfzn8wo.amplifyapp.com/contact_us.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    {%endif%}
+    
 
 
     

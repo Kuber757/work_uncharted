@@ -8,7 +8,7 @@
 {% block page-content %}
 <div class="container-fluid mt-5 masonary-grid pos-rel">
   <div class="back-btn-wrapper-detail">
-      <a href="{% url 'materials' %}">
+      <a href="{% url 'login:materials' %}">
         <h4>BACK</h4>
         <div class="back-btn"></div>
       </a>
@@ -17,18 +17,22 @@
       <h3>{{ mat.name }}</h3>
       <div class="masonry">
         {%for i in mat.url_list %}
-    			<div class="brick">
+
+          <div class="brick">
             {% static i as myphoto %}
-    				<img src = "{{ myphoto }}">
-            <div class="img-overlay">
-              <a href="#" class="img-icon">
+            <img src = "{{ myphoto }}">
+            <div class="img-overlay zoom-gallery">
+              <a href="{{ myphoto }}" class="img-icon">
+                <img src = "{{ myphoto }}" class="d-none">
                 <i class="fas fa-search-plus"></i>
               </a>
-              <a href="#" class="download-icon">
+              <a href="{{ myphoto }}" class="download-icon" download>
+                  <img src = "{{ myphoto }}" class="d-none">
                 <i class="fas fa-download"></i>
               </a>
             </div>
-    			</div>
+          </div>
+
         {%endfor%}
       </div>
     {% endfor %}
@@ -39,5 +43,31 @@
 
 
 {% block custombodyend %}
+<script>
 
+  $(document).ready(function(){
+    $('.zoom-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        closeOnContentClick: false,
+        closeBtnInside: false,
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        image: {
+            verticalFit: true,
+        },
+        gallery: {
+            enabled: true
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function (element) {
+                return element.find('img');
+            }
+        }
+
+    });
+  })
+
+</script>
 {% endblock %}

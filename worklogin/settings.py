@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'login.apps.LoginConfig',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -80,6 +83,12 @@ DATABASES = {
     }
 }
 
+# auth user model
+AUTH_USER_MODEL = 'login.User'
+
+LOGIN_URL = 'login:login'
+LOGOUT_REDIRECT_URL = 'login:login'
+LOGIN_REDIRECT_URL = 'login:menu'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

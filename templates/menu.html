@@ -1,13 +1,21 @@
-{% extends "frame.html" %} {% load static %} {% block customheadend %}
-{%endblock %} {% block page-content %}
+{% extends "frame.html" %} {% load static %}
+{% block customheadend %}
+<style>
+section.footer{
+  display:none;
+}
+</style>
+{%endblock %}
+{% block page-content %}
 <section class="menu-list border-top-white pt-5">
-  <div class="container-fluid">
-    <div class="row">
+  <div class="container-fluid d-lg-block d-md-block d-none">
+  <form class="w-100" action="{% url 'login:details' %}" method="GET">
+    <div class="row h-100">
       <div class="col-lg-6 col-md-7 bg-primary-color dropdown">
-        <div class="dropdown">
+        <div class="dropdown o-hidden">
           <button
             type="button"
-            class="btn-menu dropdown-toggle"
+            class="btn-menu dropdown-toggle transformable-text"
             data-toggle="dropdown"
           >
             What are you looking for?
@@ -15,220 +23,48 @@
           </button>
           <div class="dropdown-menu ListingDropDown">
               <div class="row">
-                <div class="col-4">
+                <div class="col-4 strike">
                   <h2 class="menu-list-heading">MATERIALS</h2>
+                    <div class="menu-max-height">
+                      {% for mat in mat_list %}
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = "{{mat.cat}}"/>
+                          <div class="main-heading text-gray text-left">
+                            {{ mat.name }}
+                          </div>
+                      </div>
+                      {%endfor%}
+                    </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 strike">
                   <h2 class="menu-list-heading">PROJECTS</h2>
+                    <div class="menu-max-height">
+                      {% for pro in pro_list %}
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = "{{ pro.cat }}"/>
+                          <div class="main-heading text-gray text-left">
+                            {{ pro.name }}
+                          </div>
+                      </div>
+                      {%endfor%}
+                    </div>
                 </div>
                 <div class="col-4">
                   <h2 class="menu-list-heading">COLLECTIONS</h2>
-                </div>
-
-                <form class="w-100" action="{% url 'details' %}" method="GET">
-
-
-                <div class="item-row row">
-                  <div class="f-col f-wrap col-lg-4 strike">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" name = 'mat1'/>
-                      <a href="/wedding-venues/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Venues
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4 strike">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" name = 'pro1' />
-                      <a href="/wedding-photographers/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Photographers
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" name = 'col1' />
-                      <a href="/bridal-makeup/all">
-                        <div class="main-heading text-gray text-left">
-                          Bridal Makeup Artist
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" name = 'mat2' />
-                      <a href="/wedding-planners/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Planners
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" name = 'pro2' />
-                      <a href="/wedding-caterers/all">
-                        <div class="main-heading text-gray text-left">
-                          Caterers
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" name = 'col2' />
-                      <a href="/bridal-wear/all">
-                        <div class="main-heading text-gray text-left">
-                          Bridal Wear
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/groom-wear/all">
-                        <div class="main-heading text-gray text-left">
-                          Groom Wear
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-decorators/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Decorators
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-cards/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Cards
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/mehendi-artist/all">
-                        <div class="main-heading text-gray text-left">
-                          Mehendi Artist
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/bridal-jewellery/all">
-                        <div class="main-heading text-gray text-left">
-                          Bridal Jewellery
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-favours/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Favours
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-entertainment/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Entertainment
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-choreographers/all">
-                        <div class="main-heading text-gray text-left">
-                          Sangeet Choreographers
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/dj/all">
-                        <div class="main-heading text-gray text-left">DJ's</div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/trousseau-packing/all">
-                        <div class="main-heading text-gray text-left">
-                          Trousseau Packing
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-pandits/all">
-                        <div class="main-heading text-gray text-left">
-                          Pandits
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="f-col f-wrap col-lg-4">
-                    <div class="Listing">
-                      <input type="checkbox" class="mr-2" />
-                      <a href="/wedding-cakes/all">
-                        <div class="main-heading text-gray text-left">
-                          Wedding Cakes
-                        </div>
-                      </a>
-                    </div>
+                  <div class="menu-max-height">
+                    {% for col in col_list %}
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = "{{ col.cat }}"/>
+                          <div class="main-heading text-gray text-left">
+                            {{ col.name }}
+                          </div>
+                      </div>
+                      {%endfor%}
                   </div>
                 </div>
-                <div class="col-12 text-center mt-5">
+                <div class="col-12 text-center mt-4">
                   <button type="submit" class="menu-search-btn">SEARCH</button>
                 </div>
-                </form>
               </div>
           </div>
         </div>
@@ -239,33 +75,301 @@
             <!-- Links -->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'materials' %}">MATERIALS</a>
+                <a class="nav-link transformable-text" href="{% url 'login:materials' %}">MATERIALS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'projects' %}">PROJECTS</a>
+                <a class="nav-link transformable-text" href="{% url 'login:projects' %}">PROJECTS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'collections' %}">COLLECTION</a>
+                <a class="nav-link transformable-text" href="{% url 'login:collections' %}">COLLECTION</a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
       <div class="col-lg-6 col-md-5 px-0">
-        <img src="{% static 'images/straw.jpg'%}" />
+        <div data-animation="show" class="menu-img-wrapper">
+          <img src="{% static 'images/straw.jpg'%}" />
+        </div>
       </div>
     </div>
+  </form>
   </div>
+  <section class="bg-img-menu">
+    <div class="container-fluid d-lg-none d-md-none d-block">
+      <div class="mob-menu">
+        <div class="col-12 bg-primary-color dropdown p-2">
+          <div class="dropdown">
+            <button
+              type="button"
+              class="btn-menu dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              What are you looking for?
+              <i class="fa fa-search ml-lg-5 ml-md-5 ml-2"></i>
+            </button>
+            <div class="dropdown-menu ListingDropDown">
+                <div class="row">
+                  <div class="col-4">
+                    <h2 class="menu-list-heading">MATERIALS</h2>
+                  </div>
+                  <div class="col-4">
+                    <h2 class="menu-list-heading">PROJECTS</h2>
+                  </div>
+                  <div class="col-4">
+                    <h2 class="menu-list-heading">COLLECTIONS</h2>
+                  </div>
+
+                  <form class="w-100" action="{% url 'login:details' %}" method="GET">
+
+
+                  <div class="item-row row">
+                    <div class="f-col f-wrap col-lg-4 strike">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = 'mat1'/>
+                        <a href="/wedding-venues/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Venues
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4 strike">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = 'pro1' />
+                        <a href="/wedding-photographers/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Photographers
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = 'col1' />
+                        <a href="/bridal-makeup/all">
+                          <div class="main-heading text-gray text-left">
+                            Bridal Makeup Artist
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = 'mat2' />
+                        <a href="/wedding-planners/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Planners
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = 'pro2' />
+                        <a href="/wedding-caterers/all">
+                          <div class="main-heading text-gray text-left">
+                            Caterers
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" name = 'col2' />
+                        <a href="/bridal-wear/all">
+                          <div class="main-heading text-gray text-left">
+                            Bridal Wear
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/groom-wear/all">
+                          <div class="main-heading text-gray text-left">
+                            Groom Wear
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-decorators/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Decorators
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-cards/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Cards
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/mehendi-artist/all">
+                          <div class="main-heading text-gray text-left">
+                            Mehendi Artist
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/bridal-jewellery/all">
+                          <div class="main-heading text-gray text-left">
+                            Bridal Jewellery
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-favours/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Favours
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-entertainment/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Entertainment
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-choreographers/all">
+                          <div class="main-heading text-gray text-left">
+                            Sangeet Choreographers
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/dj/all">
+                          <div class="main-heading text-gray text-left">DJ's</div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/trousseau-packing/all">
+                          <div class="main-heading text-gray text-left">
+                            Trousseau Packing
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-pandits/all">
+                          <div class="main-heading text-gray text-left">
+                            Pandits
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f-col f-wrap col-lg-4">
+                      <div class="Listing">
+                        <input type="checkbox" class="mr-2" />
+                        <a href="/wedding-cakes/all">
+                          <div class="main-heading text-gray text-left">
+                            Wedding Cakes
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 text-center mt-5">
+                    <button type="submit" class="menu-search-btn">SEARCH</button>
+                  </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+
+          <div class="navbar-menu-list pt-5">
+            <!-- A vertical navbar -->
+            <nav class="menu-nav">
+              <!-- Links -->
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login:materials' %}">MATERIALS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login:projects' %}">PROJECTS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login:collections' %}">COLLECTION</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
 {% endblock page-content %} {% block custombodyend %}
 <script>
+if (window.innerWidth > 767) {
+  setTimeout(function () {
+    if ($('.menu-list').isInViewport()) {
+        $('head').append('<style>.menu-img-wrapper::before{transition:0.8s cubic-bezier(0.215, 0.61, 0.355, 1);}</style>');
+        $('head').append('<style>.menu-img-wrapper[data-animation=show]::before{height:0%;}</style>');
+        setTimeout(function () {
+        $('.transformable-text').css('transition', 'transform 0.4s linear 0s').css('transform', 'translateY(0%)');
+        },500)
+    } else {
+      $('head').append('<style>.menu-img-wrapper[data-animation=show]::before{height:100%;}</style>');
+      $('.transformable-text').css('transition', 'transform 0.4s linear 0s').css('transform', 'translateY(150%)');
+    }
+  }, 3200);
+}
 
-  {% comment %} $(document).ready(function(){
-      $(".child-item").hide();
-  })
 
-      $(".project-search").click(function(){
-          $(".child-item").show();
-      }); {% endcomment %}
+$(".menu-list .dropdown").click(function(){
+  $(this).removeClass("o-hidden");
+});
 </script>
 {% endblock %}

@@ -11,7 +11,7 @@
     <div class="row custom-back-btn w-100 mb-5">
       <div class="col-lg-2 col-md-2 col-3 text-center">
         <div class="back-btn-wrapper">
-          <a href="{% url 'menu' %}">
+          <a href="{% url 'login:menu' %}">
             <h4 class="font-primary-color mb-0">BACK</h4>
             <div class="back-btn"></div>
           </a>
@@ -29,7 +29,7 @@
                 <h2 class="menu-list-heading">MATERIALS</h2>
               </div>
 
-              <form class="w-100" action="{% url 'materials-detail' %}" method="GET">
+              <form class="w-100" action="{% url 'login:materials-detail' %}" method="GET">
                 <div class="Listing w-100">
                   <div class="w-100">
                       <div class="d-block">
@@ -60,7 +60,7 @@
     <div class="row">
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 1 %}">
+          <a href="{% url 'login:materials-details' 1 %}">
             <img
               src="{% static 'images/Desktop_View/materials/semi-precious.jpg'%}"
             />
@@ -72,7 +72,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 2 %}">
+          <a href="{% url 'login:materials-details' 2 %}">
 
             <img src="{% static 'images/Desktop_View/materials/straw.jpg'%}" />
             <div class="project-bottom-text">
@@ -85,7 +85,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 3 %}">
+          <a href="{% url 'login:materials-details' 3 %}">
             <img src="{% static 'images/Desktop_View/materials/glass.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">GLASS</h3>
@@ -96,7 +96,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 4 %}">
+          <a href="{% url 'login:materials-details' 4 %}">
             <img src="{% static 'images/Desktop_View/materials/mother-of-pearl.jpg'%}"/>
             <div class="project-bottom-text">
               <h3 class="mb-0">MOTHER OF PEARL</h3>
@@ -107,7 +107,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 5 %}">
+          <a href="{% url 'login:materials-details' 5 %}">
             <img src="{% static 'images/Desktop_View/materials/stone.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">STONE</h3>
@@ -118,7 +118,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 6 %}">
+          <a href="{% url 'login:materials-details' 6 %}">
             <img src="{% static 'images/Desktop_View/materials/selenite.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">SELENITE</h3>
@@ -129,7 +129,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 7 %}">
+          <a href="{% url 'login:materials-details' 7 %}">
             <img src="{% static 'images/Desktop_View/materials/stingray.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">STINGRAY</h3>
@@ -141,7 +141,7 @@
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
 
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 8 %}">
+          <a href="{% url 'login:materials-details' 8 %}">
             <img
               src="{% static 'images/Desktop_View/materials/grand-hyatt.jpg'%}"
             />
@@ -153,7 +153,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 9 %}">
+          <a href="{% url 'login:materials-details' 9 %}">
             <img src="{% static 'images/Desktop_View/materials/brass.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">BRASS</h3>
@@ -164,7 +164,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 10 %}">
+          <a href="{% url 'login:materials-details' 10 %}">
             <img src="{% static 'images/Desktop_View/materials/leather.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">LEATHER</h3>
@@ -175,7 +175,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 11 %}">
+          <a href="{% url 'login:materials-details' 11 %}">
             <img src="{% static 'images/Desktop_View/materials/wood.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">WOOD</h3>
@@ -186,7 +186,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 12 %}">
+          <a href="{% url 'login:materials-details' 12 %}">
             <img
               src="{% static 'images/Desktop_View/materials/parchment.jpg'%}"
             />
@@ -198,7 +198,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 13 %}">
+          <a href="{% url 'login:materials-details' 13 %}">
             <img src="{% static 'images/Desktop_View/materials/bone1.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">BONE</h3>
@@ -209,7 +209,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 14 %}">
+          <a href="{% url 'login:materials-details' 14 %}">
             <img src="{% static 'images/Desktop_View/materials/bone2.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">BONE</h3>
@@ -220,7 +220,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 15 %}">
+          <a href="{% url 'login:materials-details' 15 %}">
             <img src="{% static 'images/Desktop_View/materials/horn.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">HORN</h3>
@@ -231,7 +231,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 16 %}">
+          <a href="{% url 'login:materials-details' 16 %}">
             <img src="{% static 'images/Desktop_View/materials/leafing.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">LEAFING</h3>
@@ -242,7 +242,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 17 %}">
+          <a href="{% url 'login:materials-details' 17 %}">
             <img src="{% static 'images/Desktop_View/materials/lacquer.jpg'%}" />
             <div class="project-bottom-text">
               <h3 class="mb-0">LACQUERWARE</h3>
@@ -253,7 +253,7 @@
       </div>
       <div class="col-lg-6 mt-lg-3 col-md-6 mt-md-3 mb-3 mb-lg-0 mb-md-0">
         <div class="project-img-wrapper">
-          <a href="{% url 'materials-details' 18 %}">
+          <a href="{% url 'login:materials-details' 18 %}">
             <img
               src="{% static 'images/Desktop_View/materials/nature-material.jpg'%}"
             />

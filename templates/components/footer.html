@@ -13,11 +13,11 @@
                 <div class="col-md-4">
                     <div class="footer-menu">
                         <ul>
-                           <li><a href="{% url 'menu' %}">Uncharted Design</a></li>
-                            <li><a href="{% url 'materials' %}">Material</a></li>
-                            <li><a href="{% url 'projects' %}">Project</a></li>
-                            <li><a href="{% url 'collections' %}">Collection</a></li>
-                            <li><a href="{% url 'home' %}">Logout</a></li>
+                           <li><a href="{% url 'login:menu' %}">Uncharted Design</a></li>
+                            <li><a href="{% url 'login:materials' %}">Material</a></li>
+                            <li><a href="{% url 'login:projects' %}">Project</a></li>
+                            <li><a href="{% url 'login:collections' %}">Collection</a></li>
+                            <li><a href="{% url 'login:logout' %}">Logout</a></li>
                         </ul>
                     </div>
                     <div class="social-icons">
@@ -48,7 +48,7 @@
                     <div class="footer-menu">
                         <ul>
                             <li><a href="about_us.html">Home</a></li>
-                            <li><a href="{% url 'menu' %}">Our Story</a></li>
+                            <li><a href="{% url 'login:menu' %}">Our Story</a></li>
                             <li><a href="materials.html">Materials</a></li>
                             <li><a href="work_preview.html">Work</a></li>
                             <li><a href="contact_us.html">Contact</a></li>

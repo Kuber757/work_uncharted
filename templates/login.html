@@ -12,10 +12,10 @@
     <section class="login-bg">
         <div class="overlay">
             <div class="container-fluid content-in-center">
-                <form class="sign-up-form" action="signup" method='POST'>
-                    {% csrf_token %}
+                <!-- <form class="sign-up-form" style="display: none;" action="signup" method='POST'>
+                    {% csrf_token %} -->
                     <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-                    <div class="row align-items-center justify-content-center h-100vh mt-5">
+                    <!-- <div class="row align-items-center justify-content-center h-100vh mt-5">
                         <div class="col-12 mt-5">
                             <div class="logo d-flex justify-content-center align-items-center">
                                 <div class="login-logo mr-3">
@@ -24,7 +24,7 @@
                                 <div class="login-text">
                                     <img src="{% static 'images/logo_text.svg'%}" class="logotext" alt="logo">
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <input type="text" placeholder="USER NAME" class="form-control" id='fname'> -->
                             <!-- <input type="text" placeholder="LAST NAME" class="form-control" id='lname'> -->
                             <!-- <input type="text" placeholder="COMPANY NAME" class="form-control" id = 'company'>
@@ -41,23 +41,23 @@
                                 <option>Others</option>
                             </select> -->
 
-                            {{form.username.label}}
+                            <!-- {{form.username.label}}
                             {{form.username}}<br>
                             {{form.email.label}}
                             {{form.email}}<br>
                             {{form.password1}}
-                            {{form.password2}}<br>
+                            {{form.password2}}<br> -->
                             <!-- <input type="submit" name="" value="good to go"> -->
-                            <button class="login-btn">Signup</button><br>
+                            <!-- <button class="login-btn">Signup</button><br>
                             {{form.errors}}
                             <div class="mt-5 inline-btns">
                                 <button class="sign-btn">SIGN IN</button>
                                 <button class="signup-btn">SIGN UP</button>
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div>
                     </div>
-                </form>
-                <form class="sign-in-form" action="signin" method='POST'>
+                </form> -->
+                <form class="sign-in-form" method='POST'>
                   {% csrf_token %}
                     <div class="row align-items-center justify-content-center h-100 mt-5">
                         <div class="col-12">
@@ -69,19 +69,15 @@
                                     <img src="{% static 'images/logo_text.svg'%}" class="logotext" alt="logo">
                                 </div>
                             </div>
-                            <!-- <input type="text" placeholder="E-mail" class="form-control" id="username">
-                            <input type="password" placeholder="Password" class="form-control" id="password"> -->
-                            {{form2.username.label}}
-                            {{form2.username}}<br>
-                            {{form2.password.label}}
-                            {{form2.password}}
+                            {{ form.username }}
+                            {{ form.password }}
                             <button class="login-btn">Log In</button><br>
                             <div class="mt-2">
                                 <a href="#" class="forgot-text">Forgot your Password?</a>
                             </div>
                             <div class="mt-5 inline-btns">
-                                <button class="sign-btn">SIGN IN</button>
-                                <button class="signup-btn">SIGN UP</button>
+                                <a href="{% url 'login:login' %}"><button type="button" class="sign-btn">SIGN IN</button></a>
+                                <a href="{% url 'login:signup' %}"><button type="button" class="signup-btn">SIGN UP</button></a>
                             </div>
                         </div>
                     </div>

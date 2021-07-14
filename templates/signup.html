@@ -1,0 +1,75 @@
+
+
+
+
+{% extends "frame.html" %}
+{% load static %}
+{% block customheadend %}
+
+{% endblock %}
+
+{% block page-content %}
+    <section class="login-bg">
+        <div class="overlay">
+            <div class="container-fluid content-in-center">
+                <form class="sign-up-form" method='POST'>
+                    {% csrf_token %}
+                    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+                    <div class="row align-items-center justify-content-center h-100vh mt-5">
+                        <div class="col-12 mt-5">
+                            <div class="logo d-flex justify-content-center align-items-center">
+                                <div class="login-logo mr-3">
+                                    <img src="{% static 'images/logo_icon.svg'%}" class="logoicon" alt="logo">
+                                </div>
+                                <div class="login-text">
+                                    <img src="{% static 'images/logo_text.svg'%}" class="logotext" alt="logo">
+                                </div>
+                            </div>
+                            {{ form.name }}
+                            {% if form.name.error %}
+                                <small class="text-danger"{{ form.name.error }}></small>
+                            {% endif %}
+                            {{ form.email }}
+                            {% if form.email.error %}
+                                <small class="text-danger"{{ form.email.error }}></small>
+                            {% endif %}
+                            {{ form.company_name }}
+                            {% if form.company_name.error %}
+                                <small class="text-danger"{{ form.company_name.error }}></small>
+                            {% endif %}
+                            {{ form.website_name }}
+                            {% if form.website_name.error %}
+                                <small class="text-danger"{{ form.website_name.error }}></small>
+                            {% endif %}
+                            {{ form.profession }}
+                            {% if form.profession.error %}
+                                <small class="text-danger"{{ form.profession.error }}></small>
+                            {% endif %}
+                            {{ form.password1 }}
+                            {% if form.password1.error %}
+                                <small class="text-danger"{{ form.password1.error }}></small>
+                            {% endif %}
+                            {{ form.password2 }}
+                            {% if form.password2.error %}
+                                <small class="text-danger"{{ form.password2.error }}></small>
+                            {% endif %}
+                            <button type="submit" class="login-btn">Signup</button><br>
+                            {{form.errors}}
+                            <div class="mt-5 inline-btns">
+                                <a href="{% url 'login:login' %}"><button type="button" class="sign-btn">SIGN IN</button></a>
+                                <a href="{% url 'login:signup' %}"><button type="button" class="signup-btn">SIGN UP</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock page-content %}
+
+
+
+{% block custombodyend %}
+
+{% endblock %}

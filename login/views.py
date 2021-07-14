@@ -4,79 +4,97 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
+from django.views.generic import FormView
+from django.urls import reverse_lazy
 
-
-class signinform(UserCreationForm):
-    email = forms.EmailField()
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password1', 'password2']
-
-class loginform(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ['username','password']
-
-
-
-def home(request):
-    logout(request)
-    form = signinform()
-    form2 = loginform()
-    context = {'form':form,'form2':form2}
-    return render(request,'login.html',context)
-
-
-# Create your views here.
-def loginpage(request):
-    # logout(request)
-    form = signinform()
-    form2 = loginform()
-    context = {'form':form,'form2':form2}
-    return render(request,'login.html',context)
-
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = signinform(request.POST)
-        if form.is_valid():
-            print("valid")
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request,user)
-            return render(request,'projects.html')
-        else:
-            print("invalid")
-    form = signinform()
-    context = {'form':form}
-    return render(request,'login.html',context)
-
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
-def signin(request):
-    if request.method == 'POST':
-        formi = AuthenticationForm(data=request.POST)
-        if formi.is_valid():
-            user = formi.get_user()
-            login(request, user)
-            return redirect('/menu/')
-    form = signinform()
-    form2 = loginform()
-    context = {'form':form,'form2':form2}
-    return render(request,'login.html',context)
-
+from .forms import SignUpForm, Loginform
 
 from .models import projects_list, collections_list, materials_list
+from .mixins import AlreadyAuthenticated
+
+# # Create your views here.
+# def loginpage(request):
+#     # logout(request)
+#     form = signinform()
+#     form2 = loginform()
+#     context = {'form':form,'form2':form2}
+#     return render(request,'login.html',context)
+
+
+# def signup(request):
+#     if request.method == 'POST':
+#         form = signinform(request.POST)
+#         if form.is_valid():
+#             print("valid")
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=raw_password)
+#             login(request,user)
+#             return render(request,'projects.html')
+#         else:
+#             print("invalid")
+#     form = signinform()
+#     context = {'form':form}
+#     return render(request,'login.html',context)
+
+# from django.contrib.auth import authenticate, login
+# from django.contrib.auth.forms import AuthenticationForm
+# def signin(request):
+#     if request.method == 'POST':
+#         formi = AuthenticationForm(data=request.POST)
+#         if formi.is_valid():
+#             user = formi.get_user()
+#             login(request, user)
+#             return redirect('/menu/')
+#     form = signinform()
+#     form2 = loginform()
+#     context = {'form':form,'form2':form2}
+#     return render(request,'login.html',context)
+
+# def home(request):
+#     logout(request)
+#     form = signinform()
+#     form2 = loginform()
+#     context = {'form':form,'form2':form2}
+#     return render(request,'login.html',context)
+
+
+class LoginView(AlreadyAuthenticated, LoginView):
+    """
+    Login view
+    """
+    form_class = Loginform
+    template_name = 'login.html'
+    redirect_authenticated_user = True
+
+
+class SignUpView(AlreadyAuthenticated, FormView):
+    """Customer SignUp View"""
+    form_class = SignUpForm
+    template_name = 'signup.html'
+    success_url = 'login:signup'
+
+    def form_valid(self, form):
+        self.object = form.save()
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=email, password=password)
+        if user and user.is_active:
+            login(self.request, user)
+            if self.request.GET.get('next'):
+                return redirect(self.request.GET.get('next'))
+            else:
+                self.success_url = reverse_lazy('login:menu')
+        return super(self.__class__, self).form_valid(form)
+
 
 @login_required
 def menu(request):
-    return render(request,'menu.html')
+    return render(request,'menu.html',{"pro_list" : projects_list, "col_list" : collections_list,"mat_list" : materials_list})
 
 @login_required
 def projects(request):
@@ -171,6 +189,7 @@ def details(request):
     mat, col, pro, mat_req, col_req, pro_req = [], [], [], [], [], []
     if request.method == 'GET' or pk==0:
         lis = list(request.GET.keys())
+        print(lis)
         for li in lis:
             if "mat" in li:
                 mat.append(int(li.replace('mat',"")))
@@ -190,9 +209,9 @@ def details(request):
                 col_req.append(collection)
     if len(pro)>0:
         for project in projects_list:
-            if int(project.pk) in col:
+            if int(project.pk) in pro:
                 pro_req.append(project)
-
+                
     if len(mat_req)==0 and len(col_req) == 0 and len(pro_req)==0:
         mat_req = materials_list[:1]
         col_req = collections_list[:1]
